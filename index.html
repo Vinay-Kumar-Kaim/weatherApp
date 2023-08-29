@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name">
+            <button><img src="images/search.png"></button>
+        </div>
+        <div class="weather">
+            <img src="images/rain.png">
+            <h1 class="weather-temp">22<sup>o</sup>C</h1>
+            <h2 class="weather-city">New York</h2>
+
+        </div>
+        <div class="details">
+            <div class=col>
+                <img src="images/humidity.png">
+                <p class="humidity">50%</p>
+                <p>Humidity</p>
+            </div>
+            <div class="col">
+                <img src="images/wind.png">
+                <p class="wind">20Km/h</p>
+                <p>Wind Speed</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const apiKey = "8b97fb917972bee7f29ea463d2af0b21";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=mumbai&units=metric";
+
+        async function checkWeather() {
+            const response = await fetch(apiUrl + `&appid=${apiKey}`);
+            let result = response.json();
+            console.log(result);
+            
+                document.querySelector(".weather-temp").innerHTML = result.main.temp;
+                document.querySelector(".weather-city").innerHTML = result.name;
+                document.querySelector(".humidity").innerHTML = result.main.humidity;
+                document.querySelector(".wind").innerHTML = result.wind.speed;
+            
+        }
+
+        checkWeather()
+    </script>
+</body>
+
+</html>
