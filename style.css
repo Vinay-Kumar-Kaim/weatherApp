@@ -45,6 +45,9 @@ cursor: pointer;
 .search button img{
     width:50%;
 }
+.search button:hover{
+    
+    border: 2px solid yellow;}
 
 .weather{
    height: 320px;
@@ -76,4 +79,7 @@ cursor: pointer;
     font-size: large;
 }
 
-
+.error{
+    color: red;
+    display: none;
+}
